@@ -1,13 +1,139 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    background-color: #0d350c;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.container {
+    width: 95vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper {
+    width: 90vw;
+    max-width: 920px;
+    background-color: #fff;
+    margin: 70px 0;
+    padding: 50px 40px;
+    border-radius: 10px;
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+}
+
+.wrapper .title {
+    width: 250px;
+}
+
+.wrapper .title h2 {
+    font-size: 40px;
+    color: #333;
+    text-transform: capitalize;
+    text-align: left;
+}
+
+.wrapper .question {
+    width: 550px;
+}
+
+.question .singleQst {
+    border: 1px solid #eae6eb;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px 30px;
+    margin-bottom: 20px;
+    transition: all 0.5s;
+}
+.question .singleQst .qTitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.question .singleQst .btn {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    font-size: 18px;
+    background-color: #d6d6d6;
+    color: #fa4700;
+    border: none;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.question .singleQst .qTitle h3 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    text-transform: capitalize;
+    margin-right: 15px;
+}
+
+.question .singleQst p.content {
+    font-size: 20px;
+    color: #333;
+    text-align: justify;
+    line-height: 28px;
+    font-weight: 500;
+    /* adding animation */
+    overflow: hidden;
+    opacity: 0;
+    height: 0;
+    transition: all 0.5s;
+}
+
+.question .singleQst p.content.paraShow {
+    height: 100%;
+    overflow: visible;
+    opacity: 1;
+    margin-top: 15px;
+}
+
+/*  =========== Reasponsive issu =============== */
+@media (max-width: 991px) {
+    .wrapper {
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+    .wrapper .title {
+        width: 100%;
+        margin-bottom: 50px;
+    }
+    .wrapper .title h2 {
+        text-align: center;
+        position: relative;
+    }
+    .wrapper .title h2::before {
+        position: absolute;
+        content: "";
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background-color: #0d350c;
+    }
+
+    .wrapper .question {
+        width: 100%;
+    }
+}
+
+@media (max-width: 500px) {
+    .question .singleQst .qTitle h3 {
+        font-size: 18px;
+    }
+    .wrapper .title h2 {
+        font-size: 30px;
+    }
 }
